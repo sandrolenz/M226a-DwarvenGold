@@ -8,6 +8,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Dwarf extends Actor
 {
+    GreenfootImage imgFacingRight = new GreenfootImage("dwarf-right.png");
+    GreenfootImage imgFacingLeft = new GreenfootImage("dwarf-left.png");
     public int health;
     public Dwarf(int health) {
         health = health;
@@ -41,12 +43,14 @@ public class Dwarf extends Actor
         }
         
         if (Greenfoot.isKeyDown("left")) {
+            setImage(imgFacingLeft);
             if(checkCollision()) {
             setLocation(getX()-4, getY());
             }
         }
         
         if (Greenfoot.isKeyDown("right")) {
+            setImage(imgFacingRight);
             if(checkCollision()) {
                 setLocation(getX()+4, getY());
             }
