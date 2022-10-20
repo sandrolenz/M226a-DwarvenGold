@@ -1,0 +1,59 @@
+import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+
+/**
+ * Write a description of class Dwarf here.
+ * 
+ * @author (your name) 
+ * @version (a version number or a date)
+ */
+public class Dwarf extends Actor
+{
+    public int health;
+    public Dwarf(int health) {
+        health = health;
+    }
+    
+    /**
+     * Act - do whatever the Dwarf wants to do. This method is called whenever
+     * the 'Act' or 'Run' button gets pressed in the environment.
+     */
+    public void act()
+    {
+        checkKeyPress();
+    }
+    
+    /**
+     * Prüft, ob eine Taste auf der Tastatur gedrückt wurde, und
+     * reagiert, falls dies zutrifft.     
+     */
+    private void checkKeyPress()
+    {
+        if (Greenfoot.isKeyDown("up")) {
+            if(checkCollision()) {
+            setLocation(getX(), getY()-4);
+            }
+        }
+        
+        if (Greenfoot.isKeyDown("down")) {
+            if(checkCollision()) {
+            setLocation(getX(), getY()+4);
+            }
+        }
+        
+        if (Greenfoot.isKeyDown("left")) {
+            if(checkCollision()) {
+            setLocation(getX()-4, getY());
+            }
+        }
+        
+        if (Greenfoot.isKeyDown("right")) {
+            if(checkCollision()) {
+                setLocation(getX()+4, getY());
+            }
+        }
+    }
+    
+    private boolean checkCollision() {
+        return true;
+    }
+}
