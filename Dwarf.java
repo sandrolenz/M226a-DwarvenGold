@@ -59,6 +59,10 @@ public class Dwarf extends Actor
     
     private boolean checkCollision() {
         // Check if Dwarf is touching blocks that are not mined
+        if(isTouching(Stone.class)) {
+            setLocation(getX(), getY()-4);
+            return false;
+        }
         return true; // true means no collision
     }
 }
