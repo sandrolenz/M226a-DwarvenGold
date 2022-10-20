@@ -94,6 +94,10 @@ public class Mine extends World
             x += 100;
         }
         
+        Dirt startBlock = getObjects(Dirt.class).get(16);
+        startBlock.isMined = true;
+        startBlock.setImage(startBlock.textureMined);
+        
         Dwarf dwarf = new Dwarf(20);
         addObject(dwarf, 250, 50);
     }
