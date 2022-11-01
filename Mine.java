@@ -62,13 +62,13 @@ public class Mine extends World
     
     private void showEndMessage(String reason) {
         if (reason == "durability") {
-            showText("Your Pickaxe broke!", 750, 390);
-            showText("Score: " + score, 750, 410);
+            showText("Your Pickaxe broke!", 850, 440);
+            showText("Score: " + score, 850, 460);
             return;
         }
         if(reason == "health") {
-            showText("You died!", 750, 390);
-            showText("Score: " + score, 750, 410);
+            showText("You died!", 850, 440);
+            showText("Score: " + score, 850, 460);
             return;
         }
     }
