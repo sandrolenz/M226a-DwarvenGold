@@ -17,6 +17,7 @@ public class Dwarf extends Actor
      */
     public void act()
     {
+        System.out.println(isTouching(Dirt.class));
         checkKeyPress();
     }
     
@@ -24,41 +25,53 @@ public class Dwarf extends Actor
      * Prüft, ob eine Taste auf der Tastatur gedrückt wurde, und
      * reagiert, falls dies zutrifft.     
      */
-    private void checkKeyPress()
-    {
+    private void checkKeyPress() {       
         if (Greenfoot.isKeyDown("up")) {
-            if(checkCollision()) {
             setLocation(getX(), getY()-4);
+            if(checkCollision("up")) {
             }
         }
         
         if (Greenfoot.isKeyDown("down")) {
-            if(checkCollision()) {
             setLocation(getX(), getY()+4);
+            if(checkCollision("down")) {
             }
         }
         
         if (Greenfoot.isKeyDown("left")) {
             setImage(imgFacingLeft);
-            if(checkCollision()) {
             setLocation(getX()-4, getY());
+            if(checkCollision("left")) {
             }
         }
         
         if (Greenfoot.isKeyDown("right")) {
             setImage(imgFacingRight);
-            if(checkCollision()) {
                 setLocation(getX()+4, getY());
+            if(checkCollision("right")) {
             }
         }
     }
     
-    private boolean checkCollision() {
-        Mine mine = (Mine)getWorld();
-        
+    private boolean checkCollision(String direction) {        
         // Check if Dwarf is touching blocks that are not mined
         if(isTouching(Dirt.class)) {
-            setLocation(getX(), getY()-4);
+            switch(direction) {
+                case "up":
+                    setLocation(getX(), getY()+8);
+                    break;
+                case "down":
+                    setLocation(getX(), getY()-8);
+                    break;
+                case "left":
+                    setLocation(getX()+8, getY());
+                    break;
+                case "right":
+                    setLocation(getX()-8, getY());
+                    break;
+                default:
+                    return false;
+            }
             return false;
         }
         // Check if Dwarf is touching stone
