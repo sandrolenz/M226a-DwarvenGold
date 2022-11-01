@@ -11,11 +11,9 @@ public class Dirt extends Actor
     GreenfootImage textureSilver = new GreenfootImage("texture_ore-silver.png");
     GreenfootImage textureGold = new GreenfootImage("texture_ore-gold.png");
     GreenfootImage textureEnemy = new GreenfootImage("texture_dirt-enemy.png");
-    GreenfootImage textureMined = new GreenfootImage("texture_dirt-mined.png");
     String ore;
     boolean isOre;
     boolean isEnemy;
-    boolean isMined = false;
     int value;
     public Dirt(int oreType) {
         switch(oreType) {
@@ -58,21 +56,20 @@ public class Dirt extends Actor
     }
     
     public void mine() {
-        isMined = true;
-        setImage(textureMined);
         Mine mine = (Mine)getWorld();
+        DirtMined dirtmined = new DirtMined();
+        mine.addObject(dirtmined, this.getX(), this.getY());
         mine.setDurability(-1);
         mine.setScore(this.value);
         if (this.isEnemy) {
             mine.setHealth(-1);
         }
+        mine.removeObject(this);
     }
     
     private void checkClick() {
         if (Greenfoot.mouseClicked(this)) {
-            if(this.isMined == false) {
-                this.mine();
-            }
+            this.mine();
         }
     }
 }
