@@ -3,17 +3,13 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 /**
  * Write a description of class Dwarf here.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Sandro Lenz, Daniel Fankhauser
+ * @version 0.1
  */
 public class Dwarf extends Actor
 {
     GreenfootImage imgFacingRight = new GreenfootImage("dwarf-right.png");
     GreenfootImage imgFacingLeft = new GreenfootImage("dwarf-left.png");
-    public int health;
-    public Dwarf(int health) {
-        health = health;
-    }
     
     /**
      * Act - do whatever the Dwarf wants to do. This method is called whenever

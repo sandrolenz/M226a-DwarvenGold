@@ -10,9 +10,11 @@ public class Dirt extends Actor
 {
     GreenfootImage textureSilver = new GreenfootImage("texture_ore-silver.png");
     GreenfootImage textureGold = new GreenfootImage("texture_ore-gold.png");
+    GreenfootImage textureEnemy = new GreenfootImage("texture_dirt-enemy.png");
     GreenfootImage textureMined = new GreenfootImage("texture_dirt-mined.png");
     String ore;
     boolean isOre;
+    boolean isEnemy;
     boolean isMined = false;
     int value;
     public Dirt(int oreType) {
@@ -28,6 +30,16 @@ public class Dirt extends Actor
                 ore = "gold";
                 value = 20;
                 setImage(textureGold);
+                break;
+            case 3:
+                isEnemy = true;
+                value = 0;
+                setImage(textureEnemy);
+                break;
+            case 4:
+                isEnemy = true;
+                value = 0;
+                setImage(textureEnemy);
                 break;
             default:
                 isOre = false;
@@ -51,6 +63,9 @@ public class Dirt extends Actor
         Mine mine = (Mine)getWorld();
         mine.setDurability(-1);
         mine.setScore(this.value);
+        if (this.isEnemy) {
+            mine.setHealth(-1);
+        }
     }
     
     private void checkClick() {
