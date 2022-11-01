@@ -18,7 +18,7 @@ public class Mine extends World
     public Mine()
     {    
         // Create a new world with 1500x800 cells with a cell size of 1x1 pixels.
-        super(1500, 800, 1); 
+        super(1700, 900, 1); 
         prepare();
         showScore();
         showDurability();
@@ -94,7 +94,7 @@ public class Mine extends World
             x += 100;
         }
         
-        Dirt startBlock = getObjects(Dirt.class).get(16);
+        Dirt startBlock = getObjects(Dirt.class).get(18);
         startBlock.isMined = true;
         startBlock.setImage(startBlock.textureMined);
         
