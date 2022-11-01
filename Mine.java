@@ -9,8 +9,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Mine extends World
 {
     private int score;
-    private int durability = 20;
-    private int health = 20;
+    private int durability = 25;
+    private int health = 4;
     /**
      * Constructor for objects of class Mine.
      * 
@@ -79,7 +79,7 @@ public class Mine extends World
         while(x <= getWidth()-50) {
             int y = 50;
             while (y <= getHeight()-50) {
-                int oreGenerator = Greenfoot.getRandomNumber(50);
+                int oreGenerator = Greenfoot.getRandomNumber(40);
                 Dirt dirt = new Dirt(oreGenerator);
                 addObject(dirt, x, y);
                 y += 100;
