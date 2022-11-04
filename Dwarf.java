@@ -17,7 +17,8 @@ public class Dwarf extends Actor
      */
     public void act()
     {
-        System.out.println(isTouching(Dirt.class));
+        // System.out.println(isTouching(Dirt.class));
+        checkCollision();
         checkKeyPress();
     }
     
@@ -27,56 +28,43 @@ public class Dwarf extends Actor
      */
     private void checkKeyPress() {       
         if (Greenfoot.isKeyDown("up")) {
-            setLocation(getX(), getY()-4);
-            if(checkCollision("up")) {
+            if(checkCollision()) {
+            setLocation(getX(), getY()-5);
             }
         }
         
         if (Greenfoot.isKeyDown("down")) {
-            setLocation(getX(), getY()+4);
-            if(checkCollision("down")) {
+            if(checkCollision()) {
+            setLocation(getX(), getY()+5);
             }
         }
         
         if (Greenfoot.isKeyDown("left")) {
             setImage(imgFacingLeft);
-            setLocation(getX()-4, getY());
-            if(checkCollision("left")) {
+            if(checkCollision()) {
+            setLocation(getX()-5, getY());
             }
         }
         
         if (Greenfoot.isKeyDown("right")) {
             setImage(imgFacingRight);
-                setLocation(getX()+4, getY());
-            if(checkCollision("right")) {
+            if(checkCollision()) {
+                setLocation(getX()+5, getY());
             }
         }
     }
     
-    private boolean checkCollision(String direction) {        
+    private boolean checkCollision() {        
         // Check if Dwarf is touching blocks that are not mined
-        if(isTouching(Dirt.class)) {
-            switch(direction) {
-                case "up":
-                    setLocation(getX(), getY()+8);
-                    break;
-                case "down":
-                    setLocation(getX(), getY()-8);
-                    break;
-                case "left":
-                    setLocation(getX()+8, getY());
-                    break;
-                case "right":
-                    setLocation(getX()-8, getY());
-                    break;
-                default:
-                    return false;
-            }
-            return false;
+        for (Dirt dirt : getObjectsInRange(150, Dirt.class))
+        {
+            dirt.setImage(new GreenfootImage("inRange.png"));
+            System.out.println(getObjectsInRange(150, Dirt.class));
+            System.out.println(getX() + ", " + getY());
         }
         // Check if Dwarf is touching stone
         if(isTouching(Stone.class)) {
-            setLocation(getX(), getY()-4);
+            setLocation(getX(), getY()-5);
             return false;
         }
         return true; // true means no collision
