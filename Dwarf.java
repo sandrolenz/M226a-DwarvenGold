@@ -17,7 +17,6 @@ public class Dwarf extends Actor
      */
     public void act()
     {
-        System.out.println(isTouching(Dirt.class));
         checkKeyPress();
     }
     
@@ -26,26 +25,26 @@ public class Dwarf extends Actor
      * reagiert, falls dies zutrifft.     
      */
     private void checkKeyPress() {       
-        if (Greenfoot.isKeyDown("up")) {
+        if (Greenfoot.isKeyDown("w")) {
             setLocation(getX(), getY()-4);
             if(checkCollision("up")) {
             }
         }
         
-        if (Greenfoot.isKeyDown("down")) {
+        if (Greenfoot.isKeyDown("s")) {
             setLocation(getX(), getY()+4);
             if(checkCollision("down")) {
             }
         }
         
-        if (Greenfoot.isKeyDown("left")) {
+        if (Greenfoot.isKeyDown("a")) {
             setImage(imgFacingLeft);
             setLocation(getX()-4, getY());
             if(checkCollision("left")) {
             }
         }
         
-        if (Greenfoot.isKeyDown("right")) {
+        if (Greenfoot.isKeyDown("d")) {
             setImage(imgFacingRight);
                 setLocation(getX()+4, getY());
             if(checkCollision("right")) {
