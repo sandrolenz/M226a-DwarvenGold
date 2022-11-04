@@ -8,8 +8,6 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Dirt extends Actor
 {
-    GreenfootImage textureSilver = new GreenfootImage("texture_ore-silver.png");
-    GreenfootImage textureGold = new GreenfootImage("texture_ore-gold.png");
     GreenfootImage textureEnemy = new GreenfootImage("texture_dirt-enemy.png");
     String ore;
     boolean isOre;
@@ -21,23 +19,19 @@ public class Dirt extends Actor
                 isOre = true;
                 ore = "silver";
                 value = 10;
-                setImage(textureSilver);
                 break;
             case 2:
                 isOre = true;
                 ore = "gold";
                 value = 20;
-                setImage(textureGold);
                 break;
             case 3:
                 isEnemy = true;
                 value = 0;
-                setImage(textureEnemy);
                 break;
             case 4:
                 isEnemy = true;
                 value = 0;
-                setImage(textureEnemy);
                 break;
             default:
                 isOre = false;
@@ -65,6 +59,10 @@ public class Dirt extends Actor
             mine.setHealth(-1);
         }
         mine.removeObject(this);
+    }
+    
+    public void showOre() {
+        setImage(new GreenfootImage("texture_ore-" + this.ore + ".png"));
     }
     
     private void checkClick() {

@@ -18,6 +18,7 @@ public class Dwarf extends Actor
     public void act()
     {
         checkKeyPress();
+        scanBlocks();
     }
     
     /**
@@ -80,4 +81,17 @@ public class Dwarf extends Actor
         }
         return true; // true means no collision
     }
+    
+    public void scanBlocks() {
+        for (Dirt dirt : getObjectsInRange(150, Dirt.class))
+        {
+            if(dirt.isOre) {
+                dirt.showOre();
+            }
+            // dirt.setImage(new GreenfootImage("inRange.png"));
+            // System.out.println(getObjectsInRange(150, Dirt.class));
+            // System.out.println(getX() + ", " + getY());
+        }
+    }
+    
 }

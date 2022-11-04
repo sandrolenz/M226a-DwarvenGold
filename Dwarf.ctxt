@@ -9,4 +9,6 @@ comment2.target=void\ checkKeyPress()
 comment2.text=\r\n\ Pr\u00FCft,\ ob\ eine\ Taste\ auf\ der\ Tastatur\ gedr\u00FCckt\ wurde,\ und\r\n\ reagiert,\ falls\ dies\ zutrifft.\ \ \ \ \ \r\n
 comment3.params=direction
 comment3.target=boolean\ checkCollision(java.lang.String)
-numComments=4
+comment4.params=
+comment4.target=void\ scanBlocks()
+numComments=5
