@@ -40,6 +40,7 @@ public class Mine extends World
     public void setDurability(int amount) {
         durability += amount;
         if(durability == 0) {
+            Greenfoot.playSound("pickaxeBreak.mp3");
             showEndMessage("durability");
             Greenfoot.stop();
         }
@@ -54,6 +55,7 @@ public class Mine extends World
     public void setHealth(int amount) {
         health += amount;
         if(health <= 0) {
+            Greenfoot.playSound("dwarfScream.mp3");
             showEndMessage("health");
             Greenfoot.stop();
         }

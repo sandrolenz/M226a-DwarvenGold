@@ -88,9 +88,6 @@ public class Dwarf extends Actor
             if(dirt.isOre) {
                 dirt.showOre();
             }
-            // dirt.setImage(new GreenfootImage("inRange.png"));
-            // System.out.println(getObjectsInRange(150, Dirt.class));
-            // System.out.println(getX() + ", " + getY());
         }
     }
     
