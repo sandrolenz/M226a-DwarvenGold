@@ -9,7 +9,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Mine extends World
 {
     private int score;
-    private int durability = 25;
+    private int durability = 30;
     private int health = 4;
     /**
      * Constructor for objects of class Mine.
