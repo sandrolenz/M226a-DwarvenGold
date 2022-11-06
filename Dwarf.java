@@ -83,8 +83,7 @@ public class Dwarf extends Actor
     }
     
     public void scanBlocks() {
-        for (Dirt dirt : getObjectsInRange(150, Dirt.class))
-        {
+        for (Dirt dirt : getObjectsInRange(150, Dirt.class)) {
             if(dirt.isOre) {
                 dirt.showOre();
             }

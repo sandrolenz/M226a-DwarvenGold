@@ -50,21 +50,23 @@ public class Dirt extends Actor
     }
     
     public void mine() {
-        Greenfoot.playSound("dirtMine.mp3");
-        Mine mine = (Mine)getWorld();
-        DirtMined dirtmined = new DirtMined();
-        mine.addObject(dirtmined, this.getX(), this.getY());
-        mine.setDurability(-1);
-        if (this.isOre) {
-            mine.setScore(this.value);
-            Greenfoot.playSound("oreMine.mp3");
+        if(!getObjectsInRange(200, Dwarf.class).isEmpty()) {
+            Greenfoot.playSound("dirtMine.mp3");
+            Mine mine = (Mine)getWorld();
+            DirtMined dirtmined = new DirtMined();
+            mine.addObject(dirtmined, this.getX(), this.getY());
+            mine.setDurability(-1);
+            if (this.isOre) {
+                mine.setScore(this.value);
+                Greenfoot.playSound("oreMine.mp3");
+            }
+            if (this.isEnemy) {
+                mine.setHealth(-1);
+                Greenfoot.playSound("spiderAttack.mp3");
+                Greenfoot.playSound("dwarfHurt.mp3");
+            }
+            mine.removeObject(this);
         }
-        if (this.isEnemy) {
-            mine.setHealth(-1);
-            Greenfoot.playSound("spiderAttack.mp3");
-            Greenfoot.playSound("dwarfHurt.mp3");
-        }
-        mine.removeObject(this);
     }
     
     public void showOre() {
