@@ -1,60 +1,48 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Dwarf here.
+ * The main character
  * 
- * @author Sandro Lenz, Daniel Fankhauser
- * @version 0.1
+ * @author Sandro Lenz, Daniel Fankhauser 
+ * @version v1.1
  */
-public class Dwarf extends Actor
-{
+
+public class Dwarf extends Actor {
     GreenfootImage imgFacingRight = new GreenfootImage("dwarf-right.png");
     GreenfootImage imgFacingLeft = new GreenfootImage("dwarf-left.png");
     
-    /**
-     * Act - do whatever the Dwarf wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
-    public void act()
-    {
+    public void act() {
         checkKeyPress();
         scanBlocks();
     }
     
-    /**
-     * Prüft, ob eine Taste auf der Tastatur gedrückt wurde, und
-     * reagiert, falls dies zutrifft.     
-     */
+    // Check if WASD or Arrow Keys are pressed and move dwarf
     private void checkKeyPress() {       
         if (Greenfoot.isKeyDown("w") || Greenfoot.isKeyDown("up")) {
             setLocation(getX(), getY()-4);
-            if(checkCollision("up")) {
-            }
+            checkCollision("up");
         }
         
         if (Greenfoot.isKeyDown("s") || Greenfoot.isKeyDown("down")) {
             setLocation(getX(), getY()+4);
-            if(checkCollision("down")) {
-            }
+            checkCollision("down");
         }
         
         if (Greenfoot.isKeyDown("a") || Greenfoot.isKeyDown("left")) {
             setImage(imgFacingLeft);
             setLocation(getX()-4, getY());
-            if(checkCollision("left")) {
-            }
+            checkCollision("left");
         }
         
         if (Greenfoot.isKeyDown("d") || Greenfoot.isKeyDown("right")) {
             setImage(imgFacingRight);
                 setLocation(getX()+4, getY());
-            if(checkCollision("right")) {
-            }
+            checkCollision("right");
         }
     }
     
-    private boolean checkCollision(String direction) {        
-        // Check if Dwarf is touching blocks that are not mined
+    private boolean checkCollision(String direction) {
+        // Check if Dwarf is touching dirt that is not mined and move dwarf back
         if(isTouching(Dirt.class)) {
             switch(direction) {
                 case "up":
@@ -74,6 +62,7 @@ public class Dwarf extends Actor
             }
             return false;
         }
+
         // Check if Dwarf is touching stone
         if(isTouching(Stone.class)) {
             setLocation(getX(), getY()-4);
@@ -82,12 +71,12 @@ public class Dwarf extends Actor
         return true; // true means no collision
     }
     
-    public void scanBlocks() {
+    // Loop through blocks in range to show where ores are
+    private void scanBlocks() {
         for (Dirt dirt : getObjectsInRange(150, Dirt.class)) {
             if(dirt.isOre) {
                 dirt.showOre();
             }
         }
     }
-    
 }

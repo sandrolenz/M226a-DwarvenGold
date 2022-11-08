@@ -1,12 +1,10 @@
 #BlueJ class context
 comment0.target=Dwarf
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ Dwarf\ here.\r\n\ \r\n\ @author\ Sandro\ Lenz,\ Daniel\ Fankhauser\r\n\ @version\ 0.1\r\n
+comment0.text=\r\n\ The\ main\ character\r\n\ \r\n\ @author\ Sandro\ Lenz,\ Daniel\ Fankhauser\ \r\n\ @version\ v1.1\r\n
 comment1.params=
 comment1.target=void\ act()
-comment1.text=\r\n\ Act\ -\ do\ whatever\ the\ Dwarf\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
 comment2.params=
 comment2.target=void\ checkKeyPress()
-comment2.text=\r\n\ Pr\u00FCft,\ ob\ eine\ Taste\ auf\ der\ Tastatur\ gedr\u00FCckt\ wurde,\ und\r\n\ reagiert,\ falls\ dies\ zutrifft.\ \ \ \ \ \r\n
 comment3.params=direction
 comment3.target=boolean\ checkCollision(java.lang.String)
 comment4.params=
