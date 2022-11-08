@@ -1,4 +1,4 @@
-# M226a-DwarvenGold DEV
+# M226a-DwarvenGold
 
 A small game for M226a made using Greenfoot
 
