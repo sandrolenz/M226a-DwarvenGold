@@ -45,8 +45,7 @@ public class Mine extends World {
         durability += amount;
         if(durability == 0) {
             Greenfoot.playSound("pickaxeBreak.mp3");
-            showEndMessage("durability");
-            Greenfoot.stop();
+            endGame("durability", score);
         }
         showDurability();
     }
@@ -55,23 +54,13 @@ public class Mine extends World {
         health += amount;
         if(health <= 0) {
             Greenfoot.playSound("dwarfScream.mp3");
-            showEndMessage("health");
-            Greenfoot.stop();
+            endGame("health", score);
         }
         showHealth();
     }
     
-    private void showEndMessage(String reason) {
-        if (reason == "durability") {
-            showText("Your Pickaxe broke!", 850, 440);
-            showText("Score: " + score, 850, 460);
-            return;
-        }
-        if(reason == "health") {
-            showText("You died!", 850, 440);
-            showText("Score: " + score, 850, 460);
-            return;
-        }
+    private void endGame(String reason, int score) {
+        Greenfoot.setWorld(new GameOver(reason, score));
     }
 
     // Prepare world
