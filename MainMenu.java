@@ -4,8 +4,9 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * The main menu screen
  * 
  * @author Sandro Lenz & Daniel Fankhauser 
- * @version 1.1
+ * @version v1.1
  */
+
 public class MainMenu extends World {
 
     // Constructor for objects of class MainMenu.
