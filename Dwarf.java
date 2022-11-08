@@ -4,7 +4,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * The main character
  * 
  * @author Sandro Lenz, Daniel Fankhauser 
- * @version v1.1
+ * @version v1.2
  */
 
 public class Dwarf extends Actor {
