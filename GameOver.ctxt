@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.target=GameOver
+comment0.text=\r\n\ The\ game\ over\ screen\r\n\ \r\n\ @author\ Sandro\ Lenz,\ Daniel\ Fankhauser\ \r\n\ @version\ v1.1\r\n
+comment1.params=reason\ score
+comment1.target=GameOver(java.lang.String,\ int)
+comment2.params=
+comment2.target=void\ act()
+comment3.params=reason\ score
+comment3.target=void\ showText(java.lang.String,\ int)
+numComments=4
