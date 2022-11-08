@@ -1,23 +1,20 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Mine here.
+ * The main world
  * 
  * @author Sandro Lenz, Daniel Fankhauser 
- * @version 0.1
+ * @version v1.1
  */
-public class Mine extends World
-{
+
+public class Mine extends World {
     private int score;
     private int durability = 30;
     private int health = 4;
-    /**
-     * Constructor for objects of class Mine.
-     * 
-     */
-    public Mine()
-    {    
-        // Create a new world with 1500x800 cells with a cell size of 1x1 pixels.
+
+    // Constructor for objects of class Mine.
+    public Mine() {    
+        // Create a new world with 1700x900 cells with a cell size of 1x1 pixels.
         super(1700, 900, 1); 
         prepare();
         showScore();
@@ -25,6 +22,8 @@ public class Mine extends World
         showHealth();
     }
 
+    // Basic world functions
+    
     private void showScore() {
         showText("Score: " + score, 100, 25);
     }
@@ -37,6 +36,11 @@ public class Mine extends World
         showText("Health: " + health, 100, 75);
     }
     
+    public void setScore(int amount) {
+        score += amount;
+        showScore();
+    }
+    
     public void setDurability(int amount) {
         durability += amount;
         if(durability == 0) {
@@ -45,11 +49,6 @@ public class Mine extends World
             Greenfoot.stop();
         }
         showDurability();
-    }
-    
-    public void setScore(int amount) {
-        score += amount;
-        showScore();
     }
     
     public void setHealth(int amount) {
@@ -75,6 +74,8 @@ public class Mine extends World
         }
     }
 
+    // Prepare world
+
     private void prepare() {
         // Place Dirt
         int x = 50;
@@ -88,7 +89,7 @@ public class Mine extends World
             }
             x += 100;
         }
-        // Place Stone border
+        // Place Stone border along the bottom
         x = 50;
         while(x <= getWidth()-50) {
             Stone stone = new Stone();
@@ -96,14 +97,15 @@ public class Mine extends World
             x += 100;
         }
         
+        // Make the starting block mined
         Dirt startBlock = getObjects(Dirt.class).get(18);
         DirtMined dirtmined = new DirtMined();
         addObject(dirtmined, startBlock.getX(), startBlock.getY());
         removeObject(startBlock);
         
+        // Place dwarf
         Dwarf dwarf = new Dwarf();
         addObject(dwarf, 250, 50);
-        
         setPaintOrder(Dwarf.class);
     }
 }

@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Dirt
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ Dirt\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ Blocks\ that\ contain\ dirt,\ silver,\ gold\ or\ an\ enemy\ and\ can\ be\ mined\r\n\ \r\n\ @author\ Sandro\ Lenz,\ Daniel\ Fankhauser\ \r\n\ @version\ v1.1\r\n
 comment1.params=oreType
 comment1.target=Dirt(int)
 comment2.params=
