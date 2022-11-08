@@ -28,28 +28,24 @@ public class Dwarf extends Actor
     private void checkKeyPress() {       
         if (Greenfoot.isKeyDown("w") || Greenfoot.isKeyDown("up")) {
             setLocation(getX(), getY()-4);
-            if(checkCollision("up")) {
-            }
+            checkCollision("up");
         }
         
         if (Greenfoot.isKeyDown("s") || Greenfoot.isKeyDown("down")) {
             setLocation(getX(), getY()+4);
-            if(checkCollision("down")) {
-            }
+            checkCollision("down");
         }
         
         if (Greenfoot.isKeyDown("a") || Greenfoot.isKeyDown("left")) {
             setImage(imgFacingLeft);
             setLocation(getX()-4, getY());
-            if(checkCollision("left")) {
-            }
+            checkCollision("left");
         }
         
         if (Greenfoot.isKeyDown("d") || Greenfoot.isKeyDown("right")) {
             setImage(imgFacingRight);
                 setLocation(getX()+4, getY());
-            if(checkCollision("right")) {
-            }
+            checkCollision("right");
         }
     }
     
